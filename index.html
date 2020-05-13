@@ -2,41 +2,83 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>JS - Code Quiz</title>
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS - Code Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-   <link rel="stylesheet" href="./Develop/style.css">
+    <link rel="stylesheet" href="./Develop/style.css">
 </head>
 
 <body>
-
     <div class="container">
-  <h1>JS Code Quiz</h1>
-
-  <button id="Start">Start</button>
-
-
-
-  <div id="quiz"></div>
-  <div id="progress"></div>
-  <button id="submit">Submit</button>
-  <div id="results"></div>
+        <!-- use nav-bar to keep track of scores and timer  -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-link showhighscore" href="#">View Highcores</a>
+            <h5>Time:<span id="count">0</span></h5>
+        </nav>
 
 
-  <h1>Remaining Time: <span id="rem-time">00</span></h1>
+        <div class="intro">
+            <div class="row">
+                <!--introduction page / home page-->
 
-  <script src="./code.js"></script>
-  <script src="questions.js"></script>
+                <div id="home">
+                    <h1>JavaScript Quiz Challenge</h1>
+                    <p>This Quiz is for beginners who are new to JavaScript. The quiz focuses on testing your basic skills on JavaScript essential. Please try to answer all questions within the time limit. Incorrect answers will reduce your scores by ten seconds.</p>
+                </div>
 
-</div>
+                <div class="row" id="img">
+                    <div class="col">
+                        <img src="./Develop/image/quiz-image.jpg">
+                        <div class="row">
+                            <button id="start" class="btn">Start Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<script src="./Develop/question.js"></script>
-<script src="./Develop/script.js"></script>
+
+        <!-- Quiz Page -->
+        <!-- <h1 id="question">Question</h1>
+
+    <div id="choice-container">
+        <button id="choice-1" class="btn option" data-number="1" value="choice-1"><span>Choice 1</span></button>
+        <button id="choice-2-" class="btn option" data-number="2" value="choice-"><span>Choice 2</span></button>
+        <button id="choice-3" class="btn option" data-number="3" value="choice-3"><span>Choice 3</span></button>
+        <button id="choice-4" class="btn option" data-number="4" value="choice-4"><span>Choice 4</span></button>
+    </div>
+
+    <div id="resultDiv">
+        <hr>
+        <p id="result">
+            <hr>
+        </p>
+    </div> -->
+
+        <!-- Score Page -->
+        <h1 id="yourscore">Your Score is: <span id="finalScore">Score</span></h1>
+        <form class="form-inline">
+            <label for="email">Enter Initials:</label>
+            <input type="text" class="form-control" id="inputInitial" placeholder="Initial">
+            <button id="submit" type="button" class="btn">Submit</button>
+
+        </form>
+
+        <div><br><br>
+            <p id="congratz"></p>
+        </div>
+
+    </div>
+
+<!-- script pages  -->
+    <script src="./Develop/question.js"></script>
+    <script src="./Develop/script.js"></script>
 </body>
 
 </html>
