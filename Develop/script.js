@@ -14,6 +14,7 @@ var timerEl = document.getElementById("count");
 var scoreEl = document.getElementById("score");
 var submitEl = document.getElementById("submit");
 var finalScore = document.getElementById("final-Score");
+var highScore = document.querySelector(".showhighscore");
 var questionEl = document.getElementById("question");
 var option = document.querySelectorAll(".option");
 var selOption = document.querySelector("#choice-container")
@@ -40,7 +41,7 @@ startEl.addEventListener("click", function (event) {
         if (counter <= 0) {
             counter = 0;
             startTimer();
-            endQuiz();
+            // endQuiz();
         }
     }, 1000)
     showQuestion();
@@ -60,7 +61,7 @@ function showQuestion() {
 
 
 // create on-click function when for user answer selection 
-selOption.addEventListener("click", function(event) {
+selOption.addEventListener("click", function (event) {
     event.preventDefault();
 
     var userSelection = event.target.textContent;
@@ -75,17 +76,22 @@ selOption.addEventListener("click", function(event) {
         counter -= 10;
         if (counter <= 0) {
             counter = 0;
-        } 
+        }
 
         startTimer();
         selection.textContent = "Wrong answer!"
     }
-    // if (question.length > 0) {
-    //     showQuestion(); 
-    // } else {
-    //     endQuiz();
-    // }
+    if (question.length > 0) {
+        showQuestion();
+    } else {
+        // endQuiz();
+    }
 })
+
+// end the quiz when score reaches zero or question lenght is 0
+function endQuiz() {
+
+}
 
 // when user click submit button on quiz page with initial congrats message appears.
 submitEl.addEventListener("click", function (event) {
@@ -96,20 +102,32 @@ submitEl.addEventListener("click", function (event) {
         alert("Please enter your initials!")
     } else {
 
-        document.querySelector("#congrats").innerHTML = "Congratulation...! " + intialEl + " You score is " + counter + "!";
-
-        finalScore.textContent = counter;
-        
+        // set score and intial to local storage
         localStorage.setItem("initial", intialEl);
         localStorage.setItem("score", counter);
 
         renderScoreCard();
 
-        console.log(intialEl)
+        // console.log(score)
     }
-    
-    
+
 });
 
+
+// get items from local storage and render on page 
+function renderScoreCard() {
+    var initials = localStorage.getItem("initial");
+    var score = localStorage.getItem("score");
+
+    if (score && initials === null) {
+        return;
+    } else {
+
+        document.querySelector("#congrats").innerHTML = "Congratulation...! " + initials + " You score is " + counter + "!";
+
+        finalScore.textContent = counter;
+    }
+
+}
 
 
