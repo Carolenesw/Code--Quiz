@@ -98,6 +98,8 @@ submitEl.addEventListener("click", function (event) {
 
         document.querySelector("#congrats").innerHTML = "Congratulation...! " + intialEl + " You score is " + counter + "!";
 
+        finalScore.textContent = counter;
+        
         localStorage.setItem("initial", intialEl);
         localStorage.setItem("score", counter);
 
@@ -105,7 +107,8 @@ submitEl.addEventListener("click", function (event) {
 
         console.log(intialEl)
     }
-
+    
+    
 });
 
 
