@@ -12,8 +12,10 @@ var correctAnswers = "";
 var startEl = document.getElementById("start");
 var timerEl = document.getElementById("count");
 var scoreEl = document.getElementById("score");
-var intialEl = document.getElementById("initial");
 var submitEl = document.getElementById("submit");
+var finalScore = document.getElementById("final-Score");
+var questionEl = document.getElementById("question");
+var option = document.querySelectorAll(".option");
 var counter = 50;
 var intCount = 0;
 var questionIndex = 0;
@@ -26,10 +28,12 @@ function startTimer() {
 
 }
 
+
 // add event listener on start button 
 startEl.addEventListener("click", function (event) {
     event.preventDefault();
 
+    // localStorage.setItem("time", "counter");
     intCount = setInterval(function () {
         counter--;
         startTimer();
@@ -40,23 +44,48 @@ startEl.addEventListener("click", function (event) {
             endQuiz();
         }
     }, 1000)
+    showQuestion();
+});
+
+
+// render questions after while looping through array
+function showQuestion() {
+
+    questionIndex = Math.floor(Math.random() * question.length)
+    questionEl.textContent = question[questionIndex].question;
+
+    for (i = 0; i < option.length; i++) {
+        option[i].innerHTML = question[questionIndex].choices[i]
+    }
+
+};
+
+
+// when user click submit button on quiz page with initial congrats message appears.
+submitEl.addEventListener("click", function (event) {
+    event.preventDefault();
+    var intialEl = document.querySelector("#inputInitial").value
+
+    if (intialEl === "") {
+        alert("Please enter your initials!")
+    } else {
+
+        document.querySelector("#congrats").innerHTML = "Congratulation...! " + intialEl + " You score is " + counter + "!";
+
+        localStorage.setItem("initial", intialEl);
+        localStorage.setItem("score", counter);
+
+        renderScoreCard();
+
+        console.log(intialEl)
+    }
 
 });
 
-// render questions after while looping through array
-function displayQuestions () {
-    var questionEl = document.createElement("h2"); 
 
-questionIndex = Math.floor(Math.random() * questions.length)
-questionEl.textContent(questions[questionIndex].question);
 
-console.log*(questionIndex);
 
-// for(i = 0; ){
 
-// }
-
-}
 
 // questionIndex = Math.floor(Math.random() * questions.length);
 //   questionEl.text(questions[questionIndex].question);
