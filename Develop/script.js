@@ -16,6 +16,7 @@ var submitEl = document.getElementById("submit");
 var finalScore = document.getElementById("final-Score");
 var questionEl = document.getElementById("question");
 var option = document.querySelectorAll(".option");
+var selOption = document.querySelector("#choice-container")
 var counter = 50;
 var intCount = 0;
 var questionIndex = 0;
@@ -28,12 +29,10 @@ function startTimer() {
 
 }
 
-
 // add event listener on start button 
 startEl.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // localStorage.setItem("time", "counter");
     intCount = setInterval(function () {
         counter--;
         startTimer();
@@ -47,8 +46,7 @@ startEl.addEventListener("click", function (event) {
     showQuestion();
 });
 
-
-// render questions after while looping through array
+// render questions after looping through array then link to page
 function showQuestion() {
 
     questionIndex = Math.floor(Math.random() * question.length)
@@ -60,6 +58,34 @@ function showQuestion() {
 
 };
 
+
+// create on-click function when for user answer selection 
+selOption.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var userSelection = event.target.textContent;
+    var selection = document.querySelector("#result");
+
+    console.log(userSelection)
+
+    if (userSelection == question[questionIndex].answer) {
+        var selectionDiv = document.querySelector("#selectionDiv").show
+        selection.textContent = "Correct Answer!";
+    } else {
+        counter -= 10;
+        if (counter <= 0) {
+            counter = 0;
+        } 
+
+        startTimer();
+        selection.textContent = "Wrong answer!"
+    }
+    // if (question.length > 0) {
+    //     showQuestion(); 
+    // } else {
+    //     endQuiz();
+    // }
+})
 
 // when user click submit button on quiz page with initial congrats message appears.
 submitEl.addEventListener("click", function (event) {
@@ -83,13 +109,4 @@ submitEl.addEventListener("click", function (event) {
 });
 
 
-
-
-
-
-// questionIndex = Math.floor(Math.random() * questions.length);
-//   questionEl.text(questions[questionIndex].question);
-//   for(i=0; i< choice.length; i++){
-//     choice[i].innerHTML = questions[questionIndex].choices[i];
-//   }
 
