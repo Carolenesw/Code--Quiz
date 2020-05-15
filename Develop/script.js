@@ -33,6 +33,9 @@ function startTimer() {
 // add event listener on start button 
 startEl.addEventListener("click", function (event) {
     event.preventDefault();
+    
+    // hide the home page once quiz starts
+    document.getElementById("home").style.display = "none";
 
     intCount = setInterval(function () {
         counter--;
@@ -95,8 +98,8 @@ selOption.addEventListener("click", function (event) {
 
 // end the quiz when score reaches zero or question lenght is 0
 function endQuiz() {
-   finalScore.textContent = counter 
-        clearInterval(intCount);
+    finalScore.textContent = counter
+    clearInterval(intCount);
 }
 
 // when user click submit button on quiz page with initial congrats message appears.
