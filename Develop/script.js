@@ -36,6 +36,7 @@ startEl.addEventListener("click", function (event) {
 
     // hide the home page once quiz starts
     document.getElementById("home").style.display = "none";
+    document.getElementById("score").style.display = "none";
 
     intCount = setInterval(function () {
         counter--;
@@ -86,7 +87,7 @@ selOption.addEventListener("click", function (event) {
         selection.textContent = "Wrong answer!"
     }
 
-    question.splice(questionIndex, 0);
+    question.splice(questionIndex, 1);
 
     if (question.length > 0 && counter > 0) {
         showQuestion();
@@ -137,6 +138,8 @@ function renderScoreCard() {
         document.querySelector("#congrats").innerHTML = "Congratulation...! " + initials + " You score is " + counter + "!";
 
         finalScore.textContent = counter;
+
+        document.getElementById("score").style.display = "block";
     }
 
 }
