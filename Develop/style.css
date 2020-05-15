@@ -1,0 +1,32 @@
+.container {
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+}
+
+#home {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* img {
+text-align: center;
+} */
+
+#start {
+    background-color: lightskyblue;
+    text-align: center;
+}
+
+#question {
+text-align: center;
+}
+
+#choice-container {
+    text-align: center;
+}
+
+#congrats {
+    text-align: center;
+    font-size: xx-large;
+}
