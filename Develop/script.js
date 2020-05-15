@@ -5,9 +5,9 @@
 var question = quiQuestions;
 
 // store current answers and questions as strings
-var currentQuestion = "";
-var answer = "";
-var correctAnswers = "";
+// var currentQuestion = "";
+// var answer = "";
+// var correctAnswers = "";
 
 var startEl = document.getElementById("start");
 var timerEl = document.getElementById("count");
@@ -22,7 +22,6 @@ var counter = 60;
 var intCount = 0;
 var questionIndex = 0;
 
-console.log(question)
 
 // set startTimer to show quiz count down 
 function startTimer() {
@@ -72,10 +71,7 @@ selOption.addEventListener("click", function (event) {
     var userSelection = event.target.textContent;
     var selection = document.querySelector("#result");
 
-    // console.log(userSelection)
-
     if (userSelection == question[questionIndex].answer) {
-        // var selectionDiv = document.querySelector("#selectionDiv").show
         selection.textContent = "Correct Answer!";
     } else {
         counter -= 10;
@@ -121,7 +117,6 @@ submitEl.addEventListener("click", function (event) {
         localStorage.setItem("score", counter);
 
         renderScoreCard();
-        // console.log(score)
     }
 
 });
@@ -132,11 +127,13 @@ function renderScoreCard() {
     var score = localStorage.getItem("score");
 
     if (score && initials === null) {
+       
+        // document.querySelector("#lose").innerHTML = "Oops...! " + initials + " You one is " + counter + "!";
         return;
     } else {
 
         document.querySelector("#congrats").innerHTML = "Congratulation...! " + initials + " You score is " + counter + "!";
-
+        
         finalScore.textContent = counter;
 
         document.getElementById("score").style.display = "block";

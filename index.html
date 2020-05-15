@@ -18,7 +18,7 @@
     <div class="container">
         <!-- use nav-bar to keep track of scores and timer  -->
         <nav class="navbar navbar-light bg-light">
-            <a class="navbar-link showhighscore" href="#">View Highcores</a>
+            <a class="navbar-link showhighscore">View Highcores</a>
             <h5>Time:<span id="count">0</span></h5>
         </nav>
 
@@ -26,10 +26,11 @@
         <div class="intro">
             <div class="row">
                 <!--introduction page / home page-->
-
                 <div id="home">
                     <h1>JavaScript Quiz Challenge</h1>
-                    <p>This Quiz is for beginners who are new to JavaScript. The quiz focuses on testing your basic skills on JavaScript essential. Please try to answer all questions within the time limit. Incorrect answers will reduce your scores by ten seconds.</p>
+                    <p>This Quiz is for beginners who are new to JavaScript</p>. 
+                    <p>The quiz focuses on testing your basic skills on JavaScript essentials. Please try to answer all questions within the time limit.</p>
+                    <p> Incorrect answers will reduce your scores by ten seconds.</p>
                 </div>
 
                 <div class="row" id="img">
@@ -43,23 +44,24 @@
             </div>
         </div>
 
-
         <!-- Quiz Page -->
-        <h1 id="question">Question</h1> 
+        <h1 id="question">Question</h1>
 
-    <div id="choice-container">
-        <button id="abtn" class="btn option" data-number="1" value="choice-1"><span>Choice 1</span></button>
-        <button id="bbtn" class="btn option" data-number="2" value="choice-"><span>Choice 2</span></button>
-        <button id="cbtn" class="btn option" data-number="3" value="choice-3"><span>Choice 3</span></button>
-        <button id="dbtn" class="btn option" data-number="4" value="choice-4"><span>Choice 4</span></button>
-    </div>
+        <div id="choice-container">
+            <button id="abtn" class="btn option" data-number="1" value="choice-1"><span>Choice 1</span></button>
+            <button id="bbtn" class="btn option" data-number="2" value="choice-"><span>Choice 2</span></button>
+            <button id="cbtn" class="btn option" data-number="3" value="choice-3"><span>Choice 3</span></button>
+            <button id="dbtn" class="btn option" data-number="4" value="choice-4"><span>Choice 4</span></button>
+        </div>
 
-    <div id="selectionDiv">
-        <hr>
-        <p id="result">
+        <!-- store user selection  -->
+        <div id="selectionDiv">
             <hr>
-        </p>
-    </div> 
+            <!-- store user results  -->
+            <p id="result">
+                <hr>
+            </p>
+        </div>
 
         <!-- Score Page -->
         <h1 id="score">Your Score is: <span id="final-Score"></span></h1>
@@ -67,16 +69,17 @@
             <label for="email">Enter Initials:</label>
             <input type="text" class="form-control" id="inputInitial" placeholder="Initial">
             <button id="submit" type="button" class="btn">Submit</button>
-
         </form>
 
+        <!-- use to display message to user with final results -->
         <div><br><br>
             <p id="congrats"></p>
+            <p id="lose"></p>
         </div>
 
     </div>
 
-<!-- script pages  -->
+    <!-- script pages  -->
     <script src="./Develop/question.js"></script>
     <script src="./Develop/script.js"></script>
 </body>
