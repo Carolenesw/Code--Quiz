@@ -33,7 +33,7 @@ function startTimer() {
 // add event listener on start button 
 startEl.addEventListener("click", function (event) {
     event.preventDefault();
-    
+
     // hide the home page once quiz starts
     document.getElementById("home").style.display = "none";
 
@@ -86,7 +86,7 @@ selOption.addEventListener("click", function (event) {
         selection.textContent = "Wrong answer!"
     }
 
-    question.splice(questionIndex, 1);
+    question.splice(questionIndex, 0);
 
     if (question.length > 0 && counter > 0) {
         showQuestion();
@@ -100,6 +100,10 @@ selOption.addEventListener("click", function (event) {
 function endQuiz() {
     finalScore.textContent = counter
     clearInterval(intCount);
+
+    //  hide quiz questions and start button once quiz ends
+     document.getElementById("question").style.display = "none";
+     document.getElementById("start").style.display = "none";
 }
 
 // when user click submit button on quiz page with initial congrats message appears.
