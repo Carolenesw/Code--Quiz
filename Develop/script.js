@@ -132,8 +132,8 @@ function renderScoreCard() {
         return;
     } else {
 
-        document.querySelector("#congrats").innerHTML = "Congratulation...! " + initials + " You score is " + counter + "!";
-        
+        document.querySelector("#congrats").innerHTML = "Congratulation...! " + initials + "," + " You score " + counter + "!";
+
         finalScore.textContent = counter;
 
         document.getElementById("score").style.display = "block";
