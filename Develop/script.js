@@ -18,7 +18,7 @@ var highScore = document.querySelector(".showhighscore");
 var questionEl = document.getElementById("question");
 var option = document.querySelectorAll(".option");
 var selOption = document.querySelector("#choice-container")
-var counter = 50;
+var counter = 60;
 var intCount = 0;
 var questionIndex = 0;
 
@@ -41,7 +41,7 @@ startEl.addEventListener("click", function (event) {
         if (counter <= 0) {
             counter = 0;
             startTimer();
-            // endQuiz();
+            endQuiz();
         }
     }, 1000)
     showQuestion();
@@ -55,10 +55,11 @@ function showQuestion() {
 
     for (i = 0; i < option.length; i++) {
         option[i].innerHTML = question[questionIndex].choices[i]
+
+        console.log(questionIndex)
     }
 
 };
-
 
 // create on-click function when for user answer selection 
 selOption.addEventListener("click", function (event) {
@@ -67,10 +68,10 @@ selOption.addEventListener("click", function (event) {
     var userSelection = event.target.textContent;
     var selection = document.querySelector("#result");
 
-    console.log(userSelection)
+    // console.log(userSelection)
 
     if (userSelection == question[questionIndex].answer) {
-        var selectionDiv = document.querySelector("#selectionDiv").show
+        // var selectionDiv = document.querySelector("#selectionDiv").show
         selection.textContent = "Correct Answer!";
     } else {
         counter -= 10;
@@ -81,16 +82,19 @@ selOption.addEventListener("click", function (event) {
         startTimer();
         selection.textContent = "Wrong answer!"
     }
-    if (question.length > 0) {
+    if (question.length > 0 && counter > 0) {
         showQuestion();
     } else {
-        // endQuiz();
+        endQuiz();
     }
 })
 
 // end the quiz when score reaches zero or question lenght is 0
 function endQuiz() {
-
+   finalScore.textContent = counter 
+        clearInterval(intCount);
+    
+    
 }
 
 // when user click submit button on quiz page with initial congrats message appears.
@@ -107,12 +111,10 @@ submitEl.addEventListener("click", function (event) {
         localStorage.setItem("score", counter);
 
         renderScoreCard();
-
         // console.log(score)
     }
 
 });
-
 
 // get items from local storage and render on page 
 function renderScoreCard() {
