@@ -82,8 +82,12 @@ selOption.addEventListener("click", function (event) {
         startTimer();
         selection.textContent = "Wrong answer!"
     }
+
+    question.splice(questionIndex, 1);
+
     if (question.length > 0 && counter > 0) {
         showQuestion();
+
     } else {
         endQuiz();
     }
@@ -93,8 +97,6 @@ selOption.addEventListener("click", function (event) {
 function endQuiz() {
    finalScore.textContent = counter 
         clearInterval(intCount);
-    
-    
 }
 
 // when user click submit button on quiz page with initial congrats message appears.
