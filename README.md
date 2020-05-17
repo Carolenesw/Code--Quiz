@@ -38,8 +38,3 @@ https://carolenesw.github.io/Code--Quiz/
 
 ![JavaScript-Code-Quiz]("./Develop/image/code-quiz.png")
 
-
-
-
-
-
