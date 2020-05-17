@@ -36,7 +36,7 @@ Build an interactive time quiz on the fundamentals of JavaScript that stores hig
 
 https://carolenesw.github.io/Code--Quiz/
 
-![JavaScript-Code-Quiz]("code-quiz.png")
+![JavaScript-Code-Quiz]("./Develop/image/code-quiz.png")
 
 
 
