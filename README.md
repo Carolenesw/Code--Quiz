@@ -38,5 +38,4 @@ https://carolenesw.github.io/Code--Quiz/
 
 ## link
 
-./image/code-quiz.png
-
+<img src="./assets/image/code-quiz.png">
